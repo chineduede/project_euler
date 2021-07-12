@@ -3,13 +3,15 @@
 #we get 3, 5, 6 and 9. The sum of these multiples is 23.
 #Find the sum of all the multiples of 3 or 5 below 1000.
 
-def multiples(limit):
+def multiples(limit: int) -> int:
 	"""A function to find the sum of multiples
-	of 3 and 5"""
+	of 3 and 5.
+	
+	:limit -> The upper boundary."""
 	accum = 0
-	for num in range(1, limit):
-		if (num % 3 == 0) or (num % 5 ==0):
-			accum += num
+	for num in range(1, limit):					#loop to limit
+		if (num % 3 == 0) or (num % 5 ==0):		
+			accum += num						#number is a multiple, add to accumulator
 	return accum
 
 

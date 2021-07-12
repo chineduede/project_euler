@@ -10,25 +10,22 @@
 # Find the difference between the sum of the squares of the first one
 # hundred natural numbers and the square of the sum.
 
-def sum_of_squares(n):
-	"""A function for finding sum of squares in a given range n"""
-	count = 0
-	for i in range(1, n):
-		count += (i ** 2)
-	return count
 
-def square_of_sum (n):
-	"""A function for finding square of sums in a given range n."""
-	sum = 0
-	for i in range(1, n):
-		sum += i
-	return sum ** 2
+def difference(n: int) -> int:
+	"""A function for finding difference between a range's squares and its sum.
+	
+	:n -> Limit for range, lower boundary is 0"""
 
-def difference(n):
-	"""A function for finding difference between a range's squares and sum"""
-	return square_of_sum(n) - sum_of_squares(n)
-
+	# sum_of_squares is a accumulation of each 
+	# number within a range. square_of_sum is 
+	# squaring the accumulation of the numbers
+	# in a range.
+	sum_of_squares, square_of_sum = 0, 0
+	for num in range(1, n + 1):
+		sum_of_squares += num ** 2					# square each number and accumulate
+		square_of_sum += num		
+	return (square_of_sum ** 2) - sum_of_squares	# return the difference
 
 
 if __name__ == '__main__':
-	print(difference(101))
+	print(difference(100))

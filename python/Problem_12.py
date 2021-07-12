@@ -15,49 +15,46 @@
 
 # What is the value of the first triangle number to have over five hundred divisors?
 
+from typing import Generator, Set
 
-# def factors_recur(num):
-# 	"""A recursive function that finds all the factors of a number.
-# 	works with numbers less than 800. use loop version for numbers
-# 	greater."""
-# 	def wrapper(start, stop, accum=None):
-# 		if start == stop:					#base case
-# 			return accum
-# 		else:
-# 			if num % start == 0:				#check if number is divisible by current num
-# 				other = int(num / start)		#find the other pair of factors
-# 				accum.update([start, other])	
-# 			else:
-# 				other = num						#if not a factor, leave end boundary as is.
-# 			return wrapper(start + 1, other, accum)		#increase start by 1, change end boundary to other number
-# 	return wrapper(1, num, set()) 
 
-def factors(num):
+def factors(num: int) -> Set:
 	"""A function that finds all the factors of a number"""
-	start, stop, factors = 1, num, []
-	while start <= stop:
+	# factors is a list of factors for num
+	start, stop, factors = 1, num, set()
+	while start <= stop:					
 		if num % start == 0:
+			# num is a factor, find the other factor
+			# that divides the number, reduce the upper
+			# boundary, this reduces the range to check.
 			other = int(num / start)
-			factors.extend([start, other])
+			# add both factors to the set
+			factors.add(start)		
+			factors.add(other)
+			# reduce upper boundary
 			stop = other
-		start += 1
+		start += 1				#walk foward
 	return set(factors)
 
 
-def triangle_num_gen():
+def triangle_num_gen() -> Generator[int, None, None]:
 	"""Generate infinite triangular numbers"""
 	i, j = 1, 2
 	while True:
 		yield i
 		i, j = i + j, j + 1
 
-def main():
+def main(n: int) -> int:
+	"""Find the first triangular number to have over
+	n divisors. Returns the first number.
+	
+	:n -> The number of divisors."""
+
 	for  i in triangle_num_gen():
-		length = len(factors(i))
-		if length > 500:
+		if len(factors(i)) > n:
 			print(i)
 			break
 
 if __name__ == '__main__':
-	main()
+	main(500)
 	

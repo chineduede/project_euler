@@ -5,11 +5,8 @@
 
 
 import math
-
-def sum_of_digits(num):
-	num = list(str(num))
-	num = [int(x) for x in num]
-	return sum(num)
+# similar function in problem_16
+from problem_16 import sum_of_digits
 
 if __name__ == '__main__':
 	print(sum_of_digits(math.factorial(100)))

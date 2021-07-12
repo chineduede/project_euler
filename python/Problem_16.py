@@ -5,8 +5,11 @@
 import math
 
 def sum_of_digits(num):
-	num = list(str(num))
-	num = [int(x) for x in num]
-	return sum(num)
+	"""Find the sum of digits of a number."""
+	
+	# convert the number to a list of string
+	# sum this list.
+	return sum([int(x) for x in str(num)])
+
 if __name__ == '__main__':
 	print(sum_of_digits(int(math.pow(2,1000))))

@@ -5,12 +5,12 @@
 # How many such routes are there through a 20×20 grid?
 
 
-def lattice_paths(row, col=None):
+def lattice_paths(row: int, col: int=None) -> int:
 	"""A function to count the number of lattice paths
 	given num of rows (row), and num of columns (col).
 	If col is not given, assumed to be a square lattice."""
-	if col == None:
-		col = row
+
+	col = row if col is None else col 
 	lattice = [1] * (col + 1)			#initializes an array of ones
 	for _ in range(row):
 		for i in range(col):

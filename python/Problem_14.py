@@ -12,22 +12,32 @@
 
 # Which starting number, under one million, produces the longest chain?
 
-def collatz_sequence(n):  
+def collatz_sequence(n: int) -> int:  
+	"""Given a number, find the count of the numbers present
+	in the collatz sequence.
+	"""
 	count = 1
 	while n != 1:
 		count +=1
-		if n % 2 == 0: #n is even
-			n = n/2
-		else:
-			n = 3 * n + 1
-	return count
+		# if number is even divide by 2
+		# else multiply by 3 and add 1
+		n = n/2 if n % 2 == 0 else 3 * n + 1
+	return count								# return the count of numbers
 
 
-def main(limit):
-	table = {}
-	for i in range(1,limit,2):
+def main(limit: int) -> int:
+	"""Find the number with the longest collatz sequence
+	under limit.
+	
+	:limit -> Upper boundary."""
+
+	# store collatz sequence count
+	table = {}					
+	# check only odd numbers as 
+	# even numbers wouldn't be long enough
+	for i in range(1, limit, 2):				
 		table[i] = collatz_sequence(i)
-	return max(table, key=table.get)
+	return max(table, key=table.get)			# return the maximum sequence
 
 if __name__ == '__main__':
 	print(main(1000000))

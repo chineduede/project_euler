@@ -2,32 +2,18 @@
 
 # Find the sum of all the primes below two million.
 
+# seive of erasthothenes implementation already
+# in Problem_7
+from problem_7 import gen_primes
 
-def gen_primes(): 
-    """Generate infinite sum of primes using seive of eratosthenes"""
-    D = {}
-    q, count = 2, 1
-    while True:
-        if q not in D:
-            yield q, count
-            count += 1
-            D[q * q] = [q]
-        else:
-            for p in D[q]:
-                D.setdefault(p + q, []).append(p)
-            del D[q]
-        q += 1
-
-def sum_of_prime(n):
+def sum_of_prime(n: int) -> int:
 	"""A function to calculate the sum of primes within a given range n"""
 	summation = 0
-	for i in gen_primes():
-		prime, _ = i
+	for _, prime in gen_primes():
 		if prime > n:
-			break
+			return summation        #return the total summation if limit reached
 		summation += prime
 
-	return summation
 
 if __name__ == '__main__':
 	print(sum_of_prime(2000000))

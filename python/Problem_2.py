@@ -5,24 +5,32 @@
 # By considering the terms in the Fibonacci sequence whose values
 # do not exceed four million, find the sum of the even-valued terms.
 
-def infinite_fibonacci():
-	"""A generator that generates fibonacci numbers infinitely"""
+from typing import Generator
+
+
+def infinite_fibonacci() -> Generator[int, None, None]:
+	"""A generator that generates fibonacci numbers infinitely."""
 	a = b = 1  #initializing first variables.
 	while True:
-		yield a
-		a, b = b, a + b 
+		yield a	
+		# add the next number to the first
+		# and initialize the second, then
+		# put it in the first and yield it.							
+		a, b = b, a + b 				
 
 
-def even_fibonacci(limit):
+def even_fibonacci(limit: int) -> int:
 	"""A function to find the even fibonacci up
-	to a given limit"""
+	to a given limit.
+	
+	:limit -> The upper boundary"""
 	accum = 0
-	for x in infinite_fibonacci():
+	for x in infinite_fibonacci():				# loop through the fibonacci generator
 		if x > limit:
-			break
-		if x % 2 == 0:
+			return accum						# limit reached, exit loop
+		if x % 2 == 0:							# check if fibonacci number is even.
 			accum += x
-	return accum
+	
 
 
 if __name__ == '__main__':

@@ -101,8 +101,15 @@ numbers = [37107287533902102798797998220837590246510135740250,
 20849603980134001723930671666823555245252804609722,
 53503534226472524250874054075591789781264330331690]
 
-def summation(numbers, slice_max):
-	return str(sum(numbers))[:slice_max]
+def summation(numbers: list, slice_max: int) -> str:
+	"""Sum all the numbers and find first 10 digits of summation.
+	
+	:numbers -> List of numbers to sum
+	:slice_max -> The first n digits to return"""
+
+	# sum all digits, convert the summation
+	# to string and slice up to slice_max.
+	return str(sum(numbers))[:slice_max]	
 
 if __name__ == '__main__':
 	print(summation(numbers,10))
