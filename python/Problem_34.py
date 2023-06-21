@@ -4,36 +4,35 @@
 
 
 def factorial(n):
-	if n == 1 or n == 0:
-		return 1
-	else:
-		return n * factorial(n-1)
+    if n == 1 or n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
 
 def utility():
-	return [factorial(i) for i in range(10)]
+    return [factorial(i) for i in range(10)]
+
 
 factors = utility()
 
+
 def factorion(num):
-	fact = 0
-	if num == 2 or num == 1:
-		return False 
-	for j in list(str(num)):
-		fact += factors[int(j)]
-	return True if num == fact else False
+    fact = 0
+    if num == 2 or num == 1:
+        return False
+    for j in list(str(num)):
+        fact += factors[int(j)]
+    return True if num == fact else False
+
 
 def sum_of_factorions(limit):
-	accum = 0
-	for number in range(limit):
-		if factorion(number):
-			accum += number
-	return accum
+    accum = 0
+    for number in range(limit):
+        if factorion(number):
+            accum += number
+    return accum
+
 
 if __name__ == '__main__':
-	print(sum_of_factorions(100000))
-
-
-
-
-
-
+    print(sum_of_factorions(100000))

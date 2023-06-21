@@ -9,32 +9,26 @@
 
 
 def champernownes_const():
-	"""A generator that yields the next digit of the champernownes constant"""
-	string, index = '', 0
-	while True:
-		for i in string:					#yield the first character
-			yield i
-		index += 1
-		string = str(index)					#concatenate number to string
+    """A generator that yields the next digit of the champernownes constant"""
+    string, index = '', 0
+    while True:
+        for i in string:  # yield the first character
+            yield i
+        index += 1
+        string = str(index)  # concatenate number to string
 
 
 def main(limit):
-	accum, count = 1, 0
-	for i in champernownes_const():
-		if count == limit:
-			return accum
-		count += 1
-		if count == 1 or count == 10 or count == 100 or \
-			count == 1000 or count == 10000 or count == 100000 \
-			or count == 1000000:
-			accum *= int(i)
-
+    accum, count = 1, 0
+    for i in champernownes_const():
+        if count == limit:
+            return accum
+        count += 1
+        if count == 1 or count == 10 or count == 100 or \
+                count == 1000 or count == 10000 or count == 100000 \
+                or count == 1000000:
+            accum *= int(i)
 
 
 if __name__ == '__main__':
-	print(main(1000001))
-
-
-
-
-
+    print(main(1000001))

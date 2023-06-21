@@ -5,8 +5,7 @@
 
 
 import math
-# similar function in problem_16
-from problem_16 import sum_of_digits
+from python.utils import sum_of_digits
 
 if __name__ == '__main__':
 	print(sum_of_digits(math.factorial(100)))
