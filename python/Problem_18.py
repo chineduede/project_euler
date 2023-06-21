@@ -10,7 +10,8 @@ numbers on the row below, the maximum total from top to bottom is 23.
 That is, 3 + 7 + 4 + 9 = 23.
 Find the maximum total from top to bottom of the triangle below:"""
 
-from typing import Generic, List, TypeVar
+from typing import List
+from python.utils import Stack
 
 triangle = [
     [75],
@@ -28,38 +29,7 @@ triangle = [
     [91, 71, 52, 38, 17, 14, 91, 43, 58, 50, 27, 29, 48, ],
     [63, 66, 4, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31, ],
     [4, 62, 98, 27, 23, 9, 70, 98, 73, 93, 38, 53, 60, 4, 23, ],
-    ]
-
-T = TypeVar("T", int, list)
-
-class Stack(Generic[T]):
-    """A minimal implementation of a stack"""
-
-    def __init__(self) -> None:
-        self._container: List[int] = []
-
-    @property
-    def is_empty(self) -> bool:
-        return not self._container
-
-    @property
-    def length(self) -> int:
-        return len(self._container)
-
-    def pop(self) -> T:
-        return self._container.pop()
-
-    def push(self, item: T) -> None:
-        self._container.append(item)
-
-    def stackify(self, array: List) -> None:
-        """Takes an array and adds its elements to the stack"""
-        for ele in array:
-            self._container.append(ele)
-
-    def __repr__(self):
-        return repr(self._container)
-
+]
 
 
 def maximum_path(triangle: List[int]) -> int:
@@ -73,9 +43,9 @@ def maximum_path(triangle: List[int]) -> int:
         # the next element/array
         arr2: List[int] = stack.pop()
         # initialize an empty array with length of the shorter
-        # array. Elements initiallized to None for easier 
+        # array. Elements initialized to None for easier
         # insertion while in the loop
-        length = min(len(arr1), len(arr2))      #minimum length of both arrays
+        length = min(len(arr1), len(arr2))  # minimum length of both arrays
         temp: List[int] = [None] * length
         for i in range(length):
             # Movement in a triangle can only happen between the ith element
@@ -92,8 +62,8 @@ def maximum_path(triangle: List[int]) -> int:
 
 if __name__ == '__main__':
     t = [
-        [3,],
-        [7, 4,],
+        [3, ],
+        [7, 4, ],
         [2, 4, 6],
         [8, 5, 9, 3],
     ]

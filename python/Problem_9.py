@@ -9,22 +9,21 @@
 import math
 from typing import Generator, Tuple
 
+
 def pythagorean_triplets(n: int) -> Generator[Tuple[int, int, int], None, None]:
-	"""Yields the next pythagorean triplets."""
-	for a in range(n):
-		for b in range(1, a):
-			c = math.sqrt(a*a + b*b)
-			if c.is_integer():
-				yield a, b, int(c)
+    """Yields the next pythagorean triplets."""
+    for a in range(n):
+        for b in range(1, a):
+            c = math.sqrt(a * a + b * b)
+            if c.is_integer():
+                yield a, b, int(c)
+
 
 def main(n: int):
-	for i in pythagorean_triplets(n):
-		if sum(i) == 1000:
-			return i
+    for i in pythagorean_triplets(n):
+        if sum(i) == 1000:
+            return i
 
 
 if __name__ == '__main__':
-	print(math.prod(main(100000)))
-
-
-	
+    print(math.prod(main(100000)))

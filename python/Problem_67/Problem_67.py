@@ -16,40 +16,8 @@ It is not possible to try every route to solve this problem, as there are 299 al
 If you could check one trillion (1012) routes every second it would take over twenty billion years to check them all.
 There is an efficient algorithm to solve it. ;o)"""
 
-from typing import Generic, List, TypeVar
-from utils.util import read_file
-
-
-T = TypeVar("T", int, list)
-
-class Stack(Generic[T]):
-    """A minimal implementation of a stack"""
-
-    def __init__(self) -> None:
-        self._container: List[int] = []
-
-    @property
-    def is_empty(self) -> bool:
-        return not self._container
-
-    @property
-    def length(self) -> int:
-        return len(self._container)
-
-    def pop(self) -> T:
-        return self._container.pop()
-
-    def push(self, item: T) -> None:
-        self._container.append(item)
-
-    def stackify(self, array: List) -> None:
-        """Takes an array and adds its elements to the stack"""
-        for ele in array:
-            self._container.append(ele)
-
-    def __repr__(self):
-        return repr(self._container)
-
+from typing import List
+from python.utils import Stack, read_file
 
 
 def maximum_path(triangle: List[int]) -> int:
@@ -63,9 +31,9 @@ def maximum_path(triangle: List[int]) -> int:
         # the next element/array
         arr2: List[int] = stack.pop()
         # initialize an empty array with length of the shorter
-        # array. Elements initiallized to None for easier 
+        # array. Elements initialized to None for easier
         # insertion while in the loop
-        length = min(len(arr1), len(arr2))      #minimum length of both arrays
+        length = min(len(arr1), len(arr2))  # minimum length of both arrays
         temp: List[int] = [None] * length
         for i in range(length):
             # Movement in a triangle can only happen between the ith element

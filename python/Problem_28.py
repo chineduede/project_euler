@@ -12,18 +12,16 @@ It can be verified that the sum of the numbers on the diagonals is 101.
 What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed in the same way?
 """
 
-from typing import List
-
 
 def sum_diagonals(n) -> int:
     """Calculate the sum of the diagonals in a spiral"""
     total_sum = 1
     accum = 1
-    for i in range(2, n, 2):     #n is the number of sides
+    for i in range(2, n, 2):  # n is the number of sides
         for _ in range(4):
             # Due to the nature of the spiral, the diagonals
             # can be found starting from 1 by adding 2 four 
-            # times accumulatively then adding 4 four times 
+            # times cumulatively then adding 4 four times
             # then 6 four times and so on... 
             accum += i
             total_sum += accum

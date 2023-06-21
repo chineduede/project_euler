@@ -3,13 +3,8 @@
 # What is the sum of the digits of the number 2**1000?
 
 import math
+from python.utils import sum_of_digits
 
-def sum_of_digits(num):
-	"""Find the sum of digits of a number."""
-	
-	# convert the number to a list of string
-	# sum this list.
-	return sum([int(x) for x in str(num)])
 
 if __name__ == '__main__':
-	print(sum_of_digits(int(math.pow(2,1000))))
+    print(sum_of_digits(int(math.pow(2, 1000))))
