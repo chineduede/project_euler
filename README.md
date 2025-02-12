@@ -1,4 +1,4 @@
-_This is a mirror of my solutions for some of the_ [Project Euler](https://projecteuler.net) _problems_ in various languages.
+_This is a mirror of my solutions for some of the_ [Project Euler](https://projecteuler.net) _problems_ in various language(s).
 
 # "But You Shouldn't Publish Your Solutions !"
 
