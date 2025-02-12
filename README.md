@@ -19,6 +19,6 @@ That's the only way how knowledge can be spread - all famous scientists wrote bo
 [Leonhard Euler](https://en.wikipedia.org/wiki/Leonhard_Euler) was one of the most productive mathematicians and he published 866 papers/books/etc. He shared his knowledge.
 And a substantial number of my solutions is based on some of his formulas, I only solved them because I could look up his works.
 
-Admittedly, there is no use in publishing lists of the results to Project Euler problems. 
+Admittedly, there is no use in publishing lists of the results to Project Euler problems.
 Because these numbers don't teach you anything.
 
